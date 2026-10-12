@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  esp32-streamer:
+    build: .
+    container_name: esp32_tft_streamer
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - MQTT_BROKER=broker.emqx.io
+      - MQTT_PORT=1883
+      - MQTT_TOPIC=esp32_s3_tft_display_channel/frame
+      - JPEG_QUALITY=65
