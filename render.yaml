@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: esp32-tft-streamer
+    env: docker
+    plan: free
+    region: singapore
+    autoDeploy: true
+    envVars:
+      - key: MQTT_BROKER
+        value: broker.emqx.io
+      - key: MQTT_PORT
+        value: 1883
+      - key: MQTT_TOPIC
+        value: esp32_s3_tft_display_channel/frame
+      - key: JPEG_QUALITY
+        value: 65
